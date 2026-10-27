@@ -86,3 +86,5 @@ CREATE TABLE IF NOT EXISTS historial_clinica (
     FOREIGN KEY (id_paciente) REFERENCES paciente (id_paciente),
     FOREIGN KEY (id_cita)     REFERENCES cita (id_cita) ON DELETE CASCADE
 ) ENGINE=InnoDB;
+
+CREATE TABLE USUARIOS
