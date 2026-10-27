@@ -87,4 +87,17 @@ CREATE TABLE IF NOT EXISTS historial_clinica (
     FOREIGN KEY (id_cita)     REFERENCES cita (id_cita) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE USUARIOS
+CREATE TABLE IF NOT EXISTS usuario (
+    id_usuario   INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_usuario     VARCHAR(50)  NOT NULL UNIQUE,
+    email         VARCHAR(100) NOT NULL UNIQUE,
+    Fecha_Nacimiento DATE         NOT NULL,
+    run          VARCHAR(12)  NOT NULL UNIQUE,
+    contraseña     VARCHAR(255) NOT NULL,
+    rol          ENUM('admin', 'profesional', 'paciente') NOT NULL,
+    id_profesional INT NULL,
+    id_paciente  INT NULL,
+    habilitado   TINYINT(1)   NOT NULL DEFAULT 1,
+    fecha_incorporacion DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    habilitado TINYINT(1)   NOT NULL DEFAULT 1,
+) ENGINE=InnoDB;
